@@ -1,5 +1,6 @@
 # gdrive-publish
-test
+
+ nntest
 Publish a folder of markdown, CSV and Excel files to Google Drive as **native
 Google types** — markdown becomes Google Docs (or, opt-in, stays raw `.md` for
 Drive's Markdown Mode), CSV/XLSX become Google Sheets — while **relative links
@@ -39,7 +40,7 @@ exists. Sessions in unrelated repositories never see a tool that can write to
 Drive.
 
 | Situation | What is registered |
-|---|---|
+| --- | --- |
 | unrelated directory | `/gdrive-publish-init`, `/gdrive-publish-status` only |
 | manifest present, not authenticated | the same two commands only |
 | manifest + token present | additionally the `gdrive_publish` tool |
@@ -237,7 +238,7 @@ them, the next run fills those exact Docs instead of creating duplicates.
 ## Behaviour worth knowing
 
 | Input | Result |
-|---|---|
+| --- | --- |
 | `[x](./other.md)` | rewritten to the other file's Doc URL |
 | `[x](./data.csv)` | rewritten to the Sheet URL |
 | `[x](./other.md#section)` | links to the top of the Doc, anchor dropped (warned); in native mode the anchor is kept on the rewritten link |
@@ -287,7 +288,7 @@ pull request. Node 24 is required because everything here is plain TypeScript
 executed through Node's native type stripping - there is no build step.
 
 | Suite | Tests | What it guards |
-|---|---|---|
+| --- | --- | --- |
 | `links.test.ts` | 10 | link/image parsing; never rewriting inside fenced blocks or inline code spans |
 | `csv-naming.test.ts` | 12 | encoding/delimiter sniffing, quoting, front matter, Doc naming |
 | `scan-prepare.test.ts` | 20 | file classification, ignore rules, path-escape refusal, image inlining, size caps, plan-time analysis mode |
